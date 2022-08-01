@@ -92,6 +92,8 @@ class Agent(Thing):
 
         self.program = program
 
+
+
     def can_grab(self, thing):
         """Return True if this agent can grab this thing.
         Override for appropriate subclasses of Agent and Thing."""
@@ -314,6 +316,12 @@ class Environment:
 
     def exogenous_change(self):
         """If there is spontaneous change in the world, override this."""
+        '''
+        print(self.agents)
+        print(self.things)
+        print(self.things)
+        print(self.list_things_at([1,1]))
+        '''
         pass
 
     def is_done(self):
@@ -458,9 +466,9 @@ class Direction:
         elif self.direction == self.L:
             return iclass((x - 1, y))
         elif self.direction == self.U:
-            return iclass((x, y - 1))
-        elif self.direction == self.D:
             return iclass((x, y + 1))
+        elif self.direction == self.D:
+            return iclass((x, y - 1))
 
 
 class XYEnvironment(Environment):
